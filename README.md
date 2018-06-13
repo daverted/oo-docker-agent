@@ -4,7 +4,7 @@ __*Please note, this is not an official OverOps repository or Docker image*__
 
 This image contains an [OverOps](http://www.overops.com) Agent which talks to a Remote Collector.  The Agent attaches to a single JVM running a sample application which generates errors.  More info on this image can be found on [DockerHub](https://hub.docker.com/r/timveil/oo-docker-agent/).
 
-Although the image contains defaults for all *build* arguments (see `--build-arg`), to function properly must be built with actual values from your environment or passed to the image using the appropriate environment variable.  This image accepts the following `--build-arg` key/values.
+Although the image contains defaults for all *build* arguments (see `--build-arg`), to function properly, the image must be built with actual values from your environment or passed to the image using the appropriate environment variable (see `-e`).  This image accepts the following `--build-arg` key/values.
 
 ## Build Arguments
 

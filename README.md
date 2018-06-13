@@ -26,8 +26,9 @@ Although the image contains defaults for all *build* arguments (see `docker buil
 docker build \
     --no-cache \
     -t timveil/oo-docker-agent:latest \
-    --build-arg SECRET_KEY="S3875#YAFwDEGg5oSIU+TM#G0G7VATLOqJIKtAMy1MObfFINaQmVT5hGYLQ+cpPuq4=#87a1" \ 
-    --build-arg COLLECTOR_HOST=6060 .
+    --build-arg SECRET_KEY="S3875#YAFwDEGg5oSIU+TM#G0G7VATLOqJIKtAMy1MObfFINaQmVT5hGYLQ+cpPuq4=#87a1" \
+    --build-arg COLLECTOR_HOST=overops-collector.example.com \
+    --build-arg COLLECTOR_PORT=6060 .
 ```
 
 #### Publishing the Image
@@ -42,5 +43,6 @@ docker push timveil/oo-docker-agent:latest
 docker run \
     -e TAKIPI_SECRET_KEY="S3875#YAFwDEGg5oSIU+TM#G0G7VATLOqJIKtAMy1MObfFINaQmVT5hGYLQ+cpPuq4=#87a1" \
     -e TAKIPI_MASTER_HOST=overops-collector.example.com \
+    -e TAKIPI_MASTER_PORT=6060 \
     timveil/oo-docker-agent
 ```

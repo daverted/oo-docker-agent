@@ -8,7 +8,7 @@ Although the image contains defaults for all *build* arguments (see `--build-arg
 
 ## Build Arguments
 
-*Currently build arguments passed to the `Dockerfile` are removed in favor of their environment variable equivalent which should be provided at Docker `run` time.*
+*Currently build arguments passed to the `Dockerfile` are removed in favor of their environment variable equivalents which should be provided when executing `docker run`.*
 
 | build-arg | default value | environment variable | note |
 | --- | --- | --- | --- |

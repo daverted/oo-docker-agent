@@ -23,7 +23,9 @@ Although the image contains defaults for all *build* arguments (see `docker buil
 #### Building the Image
 
 ```bash
-docker build --no-cache -t timveil/oo-docker-agent:latest \
+docker build \
+    --no-cache \
+    -t timveil/oo-docker-agent:latest \
     --build-arg SECRET_KEY="S3875#YAFwDEGg5oSIU+TM#G0G7VATLOqJIKtAMy1MObfFINaQmVT5hGYLQ+cpPuq4=#87a1" \ 
     --build-arg COLLECTOR_HOST=6060 .
 ```

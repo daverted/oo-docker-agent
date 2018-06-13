@@ -2,7 +2,7 @@
 
 __*Please note, this is not an official OverOps repository or Docker image*__
 
-This image serves as example Agent installation which talks to a Remote Collector  The Agent attaches to sample application which generates errors.  More info can be found on [DockerHub](https://hub.docker.com/r/timveil/oo-docker-agent/).
+This image serves as example Agent installation which talks to a Remote Collector.  The Agent attaches to a sample application which generates errors.  More info can be found on [DockerHub](https://hub.docker.com/r/timveil/oo-docker-agent/).
 
 To build the image run the following command. `SECRET_KEY` and `COLLECTOR_HOST` are a required build arguments.  `COLLECTOR_PORT` is optional and defaults to `6060`.  `MACHINE_NAME` is optional and defaults to `agent`.
 ```bash

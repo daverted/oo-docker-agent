@@ -42,7 +42,7 @@ docker push timveil/oo-docker-agent:latest
 ```bash
 docker run \
     -e TAKIPI_SECRET_KEY="S3875#YAFwDEGg5oSIU+TM#G0G7VATLOqJIKtAMy1MObfFINaQmVT5hGYLQ+cpPuq4=#87a1" \
-    -e TAKIPI_MASTER_HOST=overops-collector.example.com \
-    -e TAKIPI_MASTER_PORT=6060 \
+    -e TAKIPI_COLLECTOR_HOST=overops-collector.example.com \
+    -e TAKIPI_COLLECTOR_PORT=6060 \
     timveil/oo-docker-agent
 ```

@@ -13,6 +13,6 @@ RUN curl -sSL http://get.takipi.com/takipi-t4c-installer | bash /dev/stdin -i \
         --daemon_port=$COLLECTOR_PORT \
         --machine_name=$MACHINE_NAME \
         && rm -rf /opt/takipi/work/secret.key \
-        && sed -i -e '/^masterHost/d' /opt/takipi/takipi.properties
+        && sed -i -e '/^takipi.collector.host/d' /opt/takipi/agent.properties
 
 ENTRYPOINT java -agentlib:TakipiAgent -Dtakipi.debug.logconsole -jar overops-event-generator.jar

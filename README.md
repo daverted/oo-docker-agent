@@ -15,7 +15,7 @@ Although the image contains defaults for all *build* arguments (see `docker buil
 | `SECRET_KEY` | see Dockerfile | `TAKIPI_SECRET_KEY` | default secret key is invalid and must be replaced |
 | `COLLECTOR_HOST` | `collector` | `TAKIPI_MASTER_HOST` | host name of the Remote Collector |
 | `COLLECTOR_PORT` | `6060` | `TAKIPI_MASTER_PORT` | port the Remote Collector is listening on |
-| `MACHINE_NAME` | `agent` | `TAKIPI_MACHINE_NAME` | human readable name of the container |
+| `MACHINE_NAME` | `agent-container` | `TAKIPI_MACHINE_NAME` | human readable name of the container |
 
 
 ## Examples

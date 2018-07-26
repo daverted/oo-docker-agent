@@ -12,7 +12,6 @@ Although the image contains defaults for all *build* arguments (see `docker buil
 
 | build-arg | default value | environment variable | note |
 | --- | --- | --- | --- |
-| `SECRET_KEY` | see Dockerfile | `TAKIPI_SECRET_KEY` | default secret key is invalid and must be replaced |
 | `COLLECTOR_HOST` | `collector` | `TAKIPI_MASTER_HOST` | host name of the Remote Collector |
 | `COLLECTOR_PORT` | `6060` | `TAKIPI_MASTER_PORT` | port the Remote Collector is listening on |
 | `MACHINE_NAME` | `agent-container` | `TAKIPI_MACHINE_NAME` | human readable name of the container |
@@ -26,7 +25,6 @@ Although the image contains defaults for all *build* arguments (see `docker buil
 docker build \
     --no-cache \
     -t timveil/oo-docker-agent:latest \
-    --build-arg SECRET_KEY="S3875#YAFwDEGg5oSIU+TM#G0G7VATLOqJIKtAMy1MObfFINaQmVT5hGYLQ+cpPuq4=#87a1" \
     --build-arg COLLECTOR_HOST=overops-collector.example.com \
     --build-arg COLLECTOR_PORT=6060 .
 ```
@@ -41,7 +39,6 @@ docker push timveil/oo-docker-agent:latest
 
 ```bash
 docker run \
-    -e TAKIPI_SECRET_KEY="S3875#YAFwDEGg5oSIU+TM#G0G7VATLOqJIKtAMy1MObfFINaQmVT5hGYLQ+cpPuq4=#87a1" \
     -e TAKIPI_COLLECTOR_HOST=overops-collector.example.com \
     -e TAKIPI_COLLECTOR_PORT=6060 \
     timveil/oo-docker-agent

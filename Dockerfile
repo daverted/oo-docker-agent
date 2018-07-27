@@ -9,6 +9,10 @@ ARG MACHINE_NAME=agent-container
 ENV TAKIPI_TMP_DIR=/tmp/takipi
 ENV TAKIPI_AGENT_HOME=/opt/takipi
 
+RUN curl \
+        -o overops-event-generator.jar \
+        -L https://s3-us-west-1.amazonaws.com/overops/overops-event-generator-1.2.1.jar
+
 RUN mkdir -pv $TAKIPI_TMP_DIR \
     && curl -fSL https://s3.amazonaws.com/app-takipi-com/deploy/linux/takipi-agent-latest.tar.gz -o /tmp/takipi-agent-latest.tar.gz \
     && tar -xvf /tmp/takipi-agent-latest.tar.gz -C $TAKIPI_TMP_DIR --strip-components=1 \

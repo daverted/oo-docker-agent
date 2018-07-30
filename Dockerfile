@@ -22,4 +22,7 @@ RUN mkdir -pv $TAKIPI_TMP_DIR \
     && sed -i "s/\(takipi\.collector\.port=\).*\$/\1${COLLECTOR_PORT}/" $TAKIPI_AGENT_HOME/agent.properties \
     && sed -i "s/\(takipi\.server\.name=\).*\$/\1${MACHINE_NAME}/" $TAKIPI_AGENT_HOME/agent.properties
 
-ENTRYPOINT java -agentpath:${TAKIPI_AGENT_HOME}/lib/libTakipiAgent.so -jar overops-event-generator.jar
+ADD run.sh /run.sh
+RUN chmod a+x /run.sh
+
+CMD ["/run.sh"]

@@ -1,4 +1,4 @@
-FROM timveil/oo-docker-base
+FROM timveil/oo-docker-base:latest
 
 LABEL maintainer="tjveil@gmail.com"
 

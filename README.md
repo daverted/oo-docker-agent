@@ -41,5 +41,5 @@ docker push timveil/oo-docker-agent:latest
 docker run \
     -e TAKIPI_COLLECTOR_HOST=overops-collector.example.com \
     -e TAKIPI_COLLECTOR_PORT=6060 \
-    timveil/oo-docker-agent
+    timveil/oo-docker-agent:latest
 ```

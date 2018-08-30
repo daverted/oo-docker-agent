@@ -24,7 +24,7 @@ Although the image contains defaults for all *build* arguments (see `docker buil
 ```bash
 docker build \
     --no-cache \
-    -t timveil/oo-docker-agent:latest \
+    -t timveil/oo-docker-agent:rootless \
     --build-arg COLLECTOR_HOST=overops-collector.example.com \
     --build-arg COLLECTOR_PORT=6060 .
 ```
@@ -32,7 +32,7 @@ docker build \
 #### Publishing the Image
 
 ```bash
-docker push timveil/oo-docker-agent:latest
+docker push timveil/oo-docker-agent:rootless
 ```
 
 #### Running the Image
@@ -41,5 +41,5 @@ docker push timveil/oo-docker-agent:latest
 docker run \
     -e TAKIPI_COLLECTOR_HOST=overops-collector.example.com \
     -e TAKIPI_COLLECTOR_PORT=6060 \
-    timveil/oo-docker-agent
+    timveil/oo-docker-agent:rootless
 ```

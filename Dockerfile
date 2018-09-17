@@ -14,7 +14,7 @@ RUN curl \
         -L https://s3-us-west-1.amazonaws.com/overops/overops-event-generator-1.2.1.jar
 
 RUN mkdir -pv $TAKIPI_TMP_DIR \
-    && curl -fSL https://s3.amazonaws.com/app-takipi-com/deploy/linux/takipi-agent-latest.tar.gz -o /tmp/takipi-agent-latest.tar.gz \
+    && curl -fSL http://app-takipi-com.s3.amazonaws.com/chen/takipi-agent-native-alpine-alpha.tar.gz -o /tmp/takipi-agent-latest.tar.gz \
     && tar -xvf /tmp/takipi-agent-latest.tar.gz -C $TAKIPI_TMP_DIR --strip-components=1 \
     && mv -v $TAKIPI_TMP_DIR /opt \
     && rm -rfv /tmp/takipi-agent-latest.tar.gz \

@@ -24,7 +24,7 @@ Although the image contains defaults for all *build* arguments (see `docker buil
 ```bash
 docker build \
     --no-cache \
-    -t timveil/oo-docker-agent:alpine \
+    -t timveil/oo-docker-agent:alpine-glibc \
     --build-arg COLLECTOR_HOST=overops-collector.example.com \
     --build-arg COLLECTOR_PORT=6060 .
 ```
@@ -41,5 +41,5 @@ docker push timveil/oo-docker-agent:alpine
 docker run \
     -e TAKIPI_COLLECTOR_HOST=overops-collector.example.com \
     -e TAKIPI_COLLECTOR_PORT=6060 \
-    timveil/oo-docker-agent:alpine
+    timveil/oo-docker-agent:alpine-glibc
 ```

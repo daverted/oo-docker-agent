@@ -1,3 +1,21 @@
+####################################
+#   Multi-stage build
+#       1. build generator
+#       2. build agent
+####################################
+
+# Stage 1 - Build Generator
+
+FROM maven:3.5 as generator-builder
+
+RUN git clone https://github.com/overops-samples/overops-event-generator.git /opt/overops-event-generator
+
+RUN cd /opt/overops-event-generator \
+    && mvn clean package -DskipTests=true
+
+
+# Stage 2 - Build Agent
+
 FROM timveil/oo-docker-base:alpine-musl
 
 LABEL maintainer="tjveil@gmail.com"
@@ -9,9 +27,7 @@ ARG MACHINE_NAME=agent-container
 ENV TAKIPI_TMP_DIR=/tmp/takipi
 ENV TAKIPI_AGENT_HOME=/opt/takipi
 
-RUN curl \
-        -o overops-event-generator.jar \
-        -L https://s3-us-west-1.amazonaws.com/overops/overops-event-generator-1.2.1.jar
+COPY --from=generator-builder /opt/overops-event-generator/target/overops-event-generator-*.jar .
 
 RUN mkdir -pv $TAKIPI_TMP_DIR \
     && curl -fSL http://app-takipi-com.s3.amazonaws.com/chen/takipi-agent-native-alpine-alpha.tar.gz -o /tmp/takipi-agent-latest.tar.gz \

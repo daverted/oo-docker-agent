@@ -23,6 +23,7 @@ LABEL maintainer="tjveil@gmail.com"
 ARG COLLECTOR_HOST=collector
 ARG COLLECTOR_PORT=6060
 ARG MACHINE_NAME=agent-container
+ARG AGENT_VERSION=0.2252
 
 ENV TAKIPI_TMP_DIR=/tmp/takipi
 ENV TAKIPI_AGENT_HOME=/opt/takipi
@@ -30,7 +31,7 @@ ENV TAKIPI_AGENT_HOME=/opt/takipi
 COPY --from=generator-builder /opt/overops-event-generator/target/overops-event-generator-*.jar .
 
 RUN mkdir -pv $TAKIPI_TMP_DIR \
-    && curl -fSL http://app-takipi-com.s3.amazonaws.com/chen/takipi-agent-native-alpine-alpha.tar.gz -o /tmp/takipi-agent-latest.tar.gz \
+    && curl -fSL https://s3.amazonaws.com/sam.sparktale/samv2/snapshots/native/native.${AGENT_VERSION}/takipi-alpine-agent-native.${AGENT_VERSION}.tar.gz -o /tmp/takipi-agent-latest.tar.gz \
     && tar -xvf /tmp/takipi-agent-latest.tar.gz -C $TAKIPI_TMP_DIR --strip-components=1 \
     && mv -v $TAKIPI_TMP_DIR /opt \
     && rm -rfv /tmp/takipi-agent-latest.tar.gz \

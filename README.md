@@ -32,7 +32,7 @@ docker build \
 #### Publishing the Image
 
 ```bash
-docker push timveil/oo-docker-agent:alpine
+docker push timveil/oo-docker-agent:alpine-glibc
 ```
 
 #### Running the Image
